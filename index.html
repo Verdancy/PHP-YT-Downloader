@@ -1,0 +1,185 @@
+<!DOCTYPE html> 
+<html> 
+	<head> 
+		<link href="style.css" rel="stylesheet">
+	</head>
+	<body>
+		<main>
+			<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+			<div id="myform">
+				<form id="survey-form" id="myform" onsubmit="return false;">
+					<button disabled type="reset" id="btn_main1" class="btn-main" style="font-size:20px;border-top-left-radius:60px;border-bottom-left-radius:60px">X</button>
+					<input required autofocus autocomplete="off" type="text" id="txt_url" name="url" placeholder="Paste your video URL here">
+					<button disabled id="btn_main2" value="Fetch" class="btn-main" type="submit" name="submit" style="border-top-right-radius:60px;border-bottom-right-radius:60px">></button></button>
+				</form>
+			</div>
+			<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+			<script>
+				const txt_url = document.getElementById('txt_url');
+				const inputHandler = function() {
+					document.getElementById("btn_main1").style.width = "60px";
+					document.getElementById("btn_main1").style.color = "#3c8596";
+					document.getElementById("btn_main1").disabled = false;
+					document.getElementById("btn_main1").style.cursor = "pointer";
+					document.getElementById("btn_main2").style.width = "60px";
+					document.getElementById("btn_main2").style.color = "#3c8596";
+					document.getElementById("btn_main2").disabled = false;
+					document.getElementById("btn_main2").style.cursor = "pointer";
+				}
+				
+				txt_url.addEventListener('input', inputHandler);
+				txt_url.addEventListener('propertychange', inputHandler); // for IE8
+			</script>
+			<script>
+				$("#txt_url").on("paste", function () {
+					setTimeout(function() {
+						$('[name=submit]').trigger('click');
+					});
+				});
+
+			var ad1 = $("#ad1");
+			if ($(window).width() < 1200) {
+				ad1.next().insertBefore(ad1);	
+			}
+			else {
+				ad1.prev().insertAfter(ad1);
+			}
+			</script>
+			<div id="mirrors">
+				<h1 id="video_title"></h1>
+				<div class="thumbnails">
+					<div style="padding:5px">
+					<a id=thumbnail_a target=_blank href=><img id=thumbnail height=200px style="user-select:none" src=></a>
+					</div>
+					<div class="mini-thumbnail">
+					<a id=thumbnail_a_1 target=_blank href=><img id=thumbnail_1 height=100px style="user-select:none" src=></a>
+					<a id=thumbnail_a_2 target=_blank href=><img id=thumbnail_2 height=100px style="user-select:none" src=></a>
+					<a id=thumbnail_a_3 target=_blank href=><img id=thumbnail_3 height=100px style="user-select:none" src=></a>
+					<a id=thumbnail_a_4 target=_blank href=><img id=thumbnail_4 height=100px style="user-select:none" src=></a>
+					</div>
+				</div>
+				<div id="div_links">
+					<h1>MP4</h1>
+					<a id="mp4_1080" class="mirror_link" target="_blank" href=>1080p</a>
+					<a id="mp4_720" class="mirror_link" target="_blank" href=>720p</a>
+					<a id="mp4_480" class="mirror_link" target="_blank" href=>480p</a>
+					<a id="mp4_360" class="mirror_link" target="_blank" href=>360p</a>
+					<a id="mp4_240" class="mirror_link" target="_blank" href=>240p</a>
+					<a id="mp4_144" class="mirror_link" target="_blank" href=>144p</a>
+					<h1>3GPP</h1>
+					<a id="3gpp_144" class="mirror_link" target="_blank" href=>144p</a>
+				</div>
+			</div>
+		</main>
+	</body> 
+</html>
+
+
+<script>
+    $(function () {
+        $("#btn_main2").click(function () {
+
+            var url = $("#txt_url").val();
+			if ((url.indexOf("youtube.com") >= 0) && (url.indexOf("v=") >= 0)){
+				setTimeout(function() {
+					$("#btn_main1").attr("disabled", true);
+					$("#btn_main2").attr("disabled", true);
+					$("#txt_url").attr("disabled", true);
+					$("#btn_main1").css({"cursor": "no-drop"});
+					$("#btn_main2").css({"cursor": "no-drop"});
+					$("#txt_url").css({"cursor": "no-drop"});
+					$("#btn_main1").css({"background": "none"});
+					$("#btn_main2").css({"background": "none"});
+					$("#btn_main1").css({"transition": "none"});
+					$("#btn_main2").css({"transition": "none"});
+					$("#txt_url").css({"background": "none"});
+					$("#survey-form").css({"animation": "gradient 1.2s running cubic-bezier(0.65, 0.05, 0.36, 1)"});
+					$("#survey-form").css({"background": "linear-gradient(90deg, rgb(255, 255, 255) -50%, #fff 60%, rgb(255 255 255 / 0%) 60%) 33% 0% / 252%"});
+					$("#survey-form").css({"background-size": "252%"});
+					$("#survey-form").css({"background-position": "33% 0%"});
+					$("#survey-form").css({"box-shadow": "inset #fff 0px 0px 0px 2px"});
+					setTimeout(function() {
+						$("#btn_main1").attr("disabled", false);
+						$("#btn_main2").attr("disabled", false);
+						$("#txt_url").attr("disabled", false);
+						$("#btn_main1").css({"cursor": "pointer"});
+						$("#btn_main2").css({"cursor": "pointer"});
+						$("#txt_url").css({"cursor": "inherit"});
+						$("#txt_url").css({"background": "#ffffff"});
+						$("#btn_main1").css({"background": "#ffffff"});
+						$("#btn_main2").css({"background": "#ffffff"});
+						$("#txt_url").css({"background": "#ffffff"});
+						$("#survey-form").css({"animation": "none"});
+						$("#survey-form").css({"box-shadow": "0px 0px 70px #ffffff3d"});
+					}, 1600);
+				});
+				var video_id = url.substr(url.length - 11);
+				$("#thumbnail").attr('src', "https://img.youtube.com/vi/" + video_id + "/maxresdefault.jpg");
+				$("#thumbnail_a").attr('href', "https://img.youtube.com/vi/" + video_id + "/maxresdefault.jpg");
+				$("#thumbnail_1").attr('src', "https://img.youtube.com/vi/" + video_id + "/0.jpg");
+				$("#thumbnail_a_1").attr('href', "https://img.youtube.com/vi/" + video_id + "/0.jpg");
+				$("#thumbnail_2").attr('src', "https://img.youtube.com/vi/" + video_id + "/1.jpg");
+				$("#thumbnail_a_2").attr('href', "https://img.youtube.com/vi/" + video_id + "/1.jpg");
+				$("#thumbnail_3").attr('src', "https://img.youtube.com/vi/" + video_id + "/2.jpg");
+				$("#thumbnail_a_3").attr('href', "https://img.youtube.com/vi/" + video_id + "/2.jpg");
+				$("#thumbnail_4").attr('src', "https://img.youtube.com/vi/" + video_id + "/3.jpg");
+				$("#thumbnail_a_4").attr('href', "https://img.youtube.com/vi/" + video_id + "/3.jpg");
+				
+				var oThis = $(this);
+				oThis.attr('disabled', true);
+				
+				$.get('video_info.php', {url: url}, function (data) {
+
+					console.log(data);
+					$("#mirrors").css("display", "block");
+					$("#showcase").css("display", "none");
+					
+					oThis.attr('disabled', false);
+
+					var links = data['links'];
+					var video_name = data['name'];
+					var error = data['error'];
+
+					if (error) {
+						alert('Error: ' + error);
+						return;
+					}
+
+					var first = links[0];
+					var second = links[1];
+					var third = links[2];
+					var fourth = links[3];
+					var fifth = links[4];
+
+
+					if (typeof first === 'undefined') {
+						alert('No video found!');
+						return;
+					}
+					
+					$("#video_title").text(video_name);
+					
+					document.title = video_name;
+					
+					var stream_url = first + "&title=" + encodeURIComponent(video_name);
+					$("#3gpp_144").attr('href', stream_url);
+					var stream_url = second + "&title=" + encodeURIComponent(video_name);
+					$("#mp4_144").attr('href', stream_url);
+					var stream_url = second + "&title=" + encodeURIComponent(video_name);
+					$("#mp4_240").attr('href', stream_url);
+					var stream_url = second + "&title=" + encodeURIComponent(video_name);
+					$("#mp4_360").attr('href', stream_url);
+					var stream_url = second + "&title=" + encodeURIComponent(video_name);
+					$("#mp4_480").attr('href', stream_url);
+					var stream_url = third + "&title=" + encodeURIComponent(video_name);
+					$("#mp4_1080").attr('href', stream_url);
+					var stream_url = third + "&title=" + encodeURIComponent(video_name);
+					$("#mp4_720").attr('href', stream_url);
+
+				});
+			}
+			else{}
+        });
+
+    });
+</script>
