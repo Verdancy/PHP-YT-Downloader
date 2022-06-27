@@ -4,7 +4,7 @@
 
 </center>
 
-# youtube-downloader
+# php-yt-downloader
 
 This project was inspired by a very popular youtube-dl python package:  
 https://github.com/rg3/youtube-dl
