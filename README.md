@@ -1,10 +1,10 @@
 <center>
   
-![](https://img.shields.io/packagist/dt/Athlon1600/youtube-downloader.svg) ![](https://img.shields.io/github/last-commit/Athlon1600/youtube-downloader.svg) ![](https://img.shields.io/github/license/Athlon1600/youtube-downloader.svg)
+![](https://img.shields.io/packagist/dt/verdancy/youtube-downloader.svg) ![](https://img.shields.io/github/last-commit/verdancy/youtube-downloader.svg) ![](https://img.shields.io/github/license/verdancy/youtube-downloader.svg)
 
 </center>
 
-# php-yt-downloader
+# PHP-YT-Downloader
 
 This project was inspired by a very popular youtube-dl python package:  
 https://github.com/rg3/youtube-dl
