@@ -1,6 +1,6 @@
 <center>
   
-![](https://img.shields.io/packagist/dt/verdancy/youtube-downloader.svg) ![](https://img.shields.io/github/last-commit/verdancy/youtube-downloader.svg) ![](https://img.shields.io/github/license/verdancy/youtube-downloader.svg)
+![](https://img.shields.io/packagist/dt/Verdancy/PHP-YT-Downloader.svg) ![](https://img.shields.io/github/last-commit/Verdancy/PHP-YT-Downloader.svg) ![](https://img.shields.io/github/license/Verdancy/PHP-YT-Downloader.svg)
 
 </center>
 
